@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Are We on the Right Way for Evaluating Large Vision-Language Model?">
+  <meta name="keywords" content="MMStar">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MMStar</title>
+
+  <link rel="icon" href="images/logo.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./static/js/sort-table.js" defer></script>
+  <script src="./static/js/fontawesome.all.min.js" defer></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+</head>
+
+
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <h2 class="title is-2 publication-title"><img id="logo" width="5%" src="images/logo.png"> MMStar</h2> -->
+          <h1 class="title is-1 publication-title">Are We on the Right Way for Evaluating <br /> Large Vision-Language Models?</h1>
+          <!-- <h5 class="subtitle is-5 publication-awards">NeurIPS 2023 (Oral)</h5> -->
+          <div class="is-size-5 publication-authors">
+            <br>
+            <span class="author-block">
+              <a href="https://lin-chen.site/" style="font-weight:normal;">Lin Chen<b><sup>* &sect;1,3</sup></b></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://li-jinsong.github.io/" style="font-weight:normal;">Jinsong Li<b><sup>* &sect;2,3</sup></b></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=FscToE0AAAAJ&hl=en" style="font-weight:normal;">Xiaoyi Dong<sup>2,3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://panzhang0212.github.io/" style="font-weight:normal;">Pan Zhang<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="hhttps://yuhangzang.github.io/" style="font-weight:normal;">Yuhang Zang<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://lovesnowbest.site/" style="font-weight:normal;">Zehui Chen<sup>1</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://kennymckormick.github.io/" style="font-weight:normal;">Haodong Duan<sup>3</sup></a>,
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://myownskyw7.github.io/" style="font-weight:normal;">Jiaqi Wang<b><sup>&dagger;3</sup></b></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://mmlab.siat.ac.cn/yuqiao" style="font-weight:normal;">Yu Qiao<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="http://dahua.site/" style="font-weight:normal;">Dahua Lin<sup>2,3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.uk/citations?user=r6CvuOUAAAAJ&hl=en" style="font-weight:normal;">Feng Zhao<b><sup>&dagger;1</sup></b></a>
+            </span>
+          </div>
+          
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#003FA8; font-weight:normal">&#x25B6 </b> <sup>1</sup> University of Science and Technology of China</span>
+            <span class="author-block"><b style="color:#D79634; font-weight:normal">&#x25B6 </b> <sup>2 </sup> The Chinese University of Hong Kong</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#149BE9; font-weight:normal">&#x25B6 </b> <sup>3 </sup> Shanghai Artificial Intelligence Laboratory</span>
+          </div>
+          
+          <div class="is-size-6 publication-authors">
+            <br>
+            <span class="author-block"><b>*</b> Equal contribution.</span>
+            <span class="author-block"><b>&dagger;</b> Corresponding authors.</span>
+          </div>
+          
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><b><sup>&sect;</sup></b> Work done during an internship in Shanghai Artificial Intelligence Laboratory.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/InternLM/InternLM-XComposer/tree/main/projects/MMStar" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code and Benchmark</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>MMStar Leaderboard</span>
+                </a>
+              </span>
+            </div>
+            <font size="5">
+            <br><img src="images/logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/> 2 Key Issues that Lead to <b>Misjudgment of LVLM Capability</b>.
+            <br><img src="images/logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/> <b>MMStar</b>, an Elite <b>Vision-indispensable</b> Multi-modal Benchmark.
+            <br><img src="images/logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/> 2 Metrics: <b>Multi-modal Gain (MG)</b> and <b>Multi-modal Leakage (ML)</b>.
+            </font>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="Abstract">
+  <div class="container" style="margin-bottom: 2vh;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large vision-language models (LVLMs) have recently achieved rapid progress, sparking numerous studies to evaluate their multi-modal capabilities.
+            However, we dig into current evaluation works and identify two primary issues: 
+            <br /><b>1) Visual content is unnecessary for many samples.</b> The answers can be directly inferred from the questions and options, or the world knowledge embedded in LLMs. This phenomenon is prevalent across current benchmarks. For instance, GeminiPro achieves 42.9% on the MMMU benchmark without any visual input, and outperforms the random choice baseline across six benchmarks over 20% on average.
+            <br /><b>2) Unintentional data leakage exists in LLM and LVLM training.</b> LLM and LVLM could still answer some visual-necessary questions without visual content, indicating the memorizing of these samples within large-scale training data. For example, Sphinx-X-MoE gets 43.6% on MMMU without accessing images, surpassing its LLM backbone with 17.9%.
+            <br /><b>Both problems lead to misjudgments of actual multi-modal performance gains and potentially misguide the study of LVLM.</b> 
+            <br />
+            <br />To this end, we present <b>MMStar</b>, an elite vision-indispensable multi-modal benchmark comprising 1,500 challenge samples meticulously selected by humans. MMStar is designed to benchmark 6 core capabilities and 18 detailed axes, aiming to evaluate the multi-modal capacities of LVLMs with a carefully balanced and purified selection of samples.
+            The samples are first roughly selected from current benchmarks with an automated pipeline, strict human review is then involved to ensure each selected sample exhibits visual dependency, minimal data leakage, and requires advanced multi-modal capabilities for the solution.
+            In addition to the traditional accuracy metric, we also develop two metrics to measure data leakage and actual performance gain in multi-modal training. 
+            We evaluate 16 leading LVLMs on our MMStar to assess their multi-modal capabilities, and on 7 benchmarks with the newly proposed metrics to investigate their data leakage and actual multi-modal gain. 
+            We hope these efforts can serve as a valuable addition to the research community in evaluating LVLMs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small" id="Issues Title">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+    <img src="images/llm.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">The Overlooked Issues for Evaluating LVLMs</span>
+  </h1>
+  </div>
+</section>
+<section class="section" id="Issues">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p><b>
+            We highlight cases in existing multi-modal benchmarks where evaluation samples either lack visual
+            dependency or have unintentionally leaked into the training data of LLMs and LVLMs. 
+            <centering>
+              <div style="text-align: center;">
+                <img id="teaser" width="100%" src="images/4_case_in_1.png">     
+              </div>
+            </centering>
+            <br />(a) Some samples can be answered by LLMs using only text-based world knowledge; 
+            <br />(b) For some instances, the question itself contains the answer, making images superfluous; 
+            <br />(c) Some samples are leaked into LLMs' training corpora can be "recalled" with the textual questions and answers directly; 
+            <br />(d) Some samples indiscernible to LLMs but solved by LVLMs without accessing images suggest leakage into LVLMs' multi-modal training data.
+          </b></p>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <h3 class="title is-4">Cases of Lacking Visual Dependency (a & b)</h3>
+                <img src="images/cases_llm_1.png" alt="llm_1" width="80%"/>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <h3 class="title is-4">Cases of Data Leakage in LLMs (c)</h3>
+                <img src="images/cases_llm_2.png" alt="llm_2" width="80%"/>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <h3 class="title is-4">Cases of Data Leakage during LVLMs' Multi-modal Training Processes (d)</h3>
+                <img src="images/cases_pairs_3.png" alt="pairs_1" width="80%"/>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="Table">
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="leaderboard"><span class="mathvista" style="vertical-align: middle">Evaluation of various LVLMs on 6 popular multi-modal benchmarks</span></h2>
+        <div class="content">
+          For the "strategy" column,
+          "LLM" refers to evaluating using the corresponding LLM base of the LVLM, 
+          while "LVLM-text" denotes evaluating LVLMs without accessing images. 
+          <br>We employ the 0-shot inference strategy for LLMs to align the evaluation protocols of LVLMs. 
+          <br>We employ the 0-shot inference strategy for LLMs to align the
+          We only report the results of 2 closed-source LVLMs and 8 open-source LVLMs
+          due to space limit
+          <br>
+          <b>Method types:</b> <b>MLLM 🖼️:</b> Multi-modal Large Language Model, <b>MoE 🤖:</b> Mixture of Experts, <b>LLM 📄:</b> Large Language Model
+
+          <table class="js-sort-table" id="results">
+            <thead>
+              <tr>
+                <th rowspan="2" style="vertical-align: middle;"><strong>#</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Model</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Method</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Source</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Date</strong></th>
+                <th colspan="2" style="vertical-align: middle;"><strong><u>ALL</u></strong></th>
+                <th colspan="2" style="vertical-align: middle;"><strong>Text<br>Dominant</strong></th> <!-- Merging two columns for 'OOO' -->
+                <th colspan="2" style="vertical-align: middle;"><strong>Text<br>Lite</strong></th> <!-- Merging two columns for 'PPP' -->
+                <th colspan="2" style="vertical-align: middle;"><strong>Text<br>Only</strong></th>
+                <th colspan="2" style="vertical-align: middle;"><strong>Vision<br>Intensive</strong></th>
+                <th colspan="2" style="vertical-align: middle;"><strong>Vision<br>Dominant</strong></th>
+                <th colspan="2" style="vertical-align: middle;"><strong>Vision<br>Only</strong></th>
+              </tr>
+              <tr>
+                <!-- Sub-headers for the 'TD' column -->
+                <th><strong><u>CoT-E</u></strong></th>
+                <th><strong>w/o</strong></th>
+                <!-- Sub-headers for the 'TL' column -->
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+                <th><strong>CoT-E</strong></th>
+                <th><strong>w/o</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>1</td>
+                <td><b class="best-score-text">GPT-4V 🥇</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="best-score-text">54.4</b></td>
+                <td>38.3</td>
+                <td>63.1</td>
+                <td>52.1</td>
+                <td>56.6</td>
+                <td>40.9</td>
+                <td>60.3</td>
+                <td>46.1</td>
+                <td>51.4</td>
+                <td>34.9</td>
+                <td>50.8</td>
+                <td>33.6</td>
+                <td>50.3</td>                                  
+                <td>29.8</td>                                  
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><b class="best-score-text">Qwen-VL-Max 🥈</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="best-score-text">37.2</b></td>
+                <td>24.8</td>
+                <td>42.8</td>
+                <td>30.3</td>
+                <td>37.7</td>
+                <td>24.8</td>
+                <td>47.9</td>
+                <td>32.2</td>
+                <td>33.6</td>
+                <td>20.6</td>
+                <td>35.9</td>
+                <td>23.3</td>
+                <td>35.9</td>                                  
+                <td>25.1</td>                                  
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><b class="best-score-text">Gemini-Pro 🥉</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="best-score-text">35.3</b></td>
+                <td>22.3</td>
+                <td>39.8</td>
+                <td>27.6</td>
+                <td>34.7</td>
+                <td>23.7</td>
+                <td>44.5</td>
+                <td>27.9</td>
+                <td>32.0</td>
+                <td>19.4</td>
+                <td>36.8</td>
+                <td>20.3</td>
+                <td>33.3</td>                                  
+                <td>20.5</td>                                  
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><b class="">InternLM-XComposer2-VL-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://github.com/InternLM/InternLM-XComposer" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2024-01-22</td>
+                <td><b class="">25.9</b></td>
+                <td>16.3</td>
+                <td>36.9</td>
+                <td>20.2</td>
+                <td>28.3</td>
+                <td>14.3</td>
+                <td>42.5</td>
+                <td>24.5</td>
+                <td>20.1</td>
+                <td>14.2</td>
+                <td>24.4</td>
+                <td>17.5</td>
+                <td>19.8</td>                                  
+                <td>15.2</td>                                  
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><b class="">SPHINX-MoE</b></td>
+                <td>MoE 🤖</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b class="">22.8</b></td>
+                <td>16.8</td>
+                <td>33.3</td>
+                <td>26.2</td>
+                <td>21.9</td>
+                <td>17.4</td>
+                <td>40.7</td>
+                <td>26.7</td>
+                <td>21.1</td>
+                <td>16.7</td>
+                <td>19.6</td>
+                <td>12.5</td>
+                <td>18.3</td>                                  
+                <td>11.1</td>                                  
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><b class="">Qwen-VL-Plus</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">21.3</b></td>
+                <td>11.8</td>
+                <td>26.0</td>
+                <td>15.7</td>
+                <td>21.2</td>
+                <td>11.1</td>
+                <td>25.2</td>
+                <td>14.5</td>
+                <td>18.5</td>
+                <td>9.0</td>
+                <td>19.1</td>
+                <td>13.0</td>
+                <td>21.8</td>                                  
+                <td>10.0</td>                                  
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><b class="">ShareGPT4V-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">17.4</b></td>
+                <td>13.1</td>
+                <td>21.8</td>
+                <td>16.2</td>
+                <td>20.6</td>
+                <td>16.2</td>
+                <td>14.6</td>
+                <td>6.6</td>
+                <td>18.6</td>
+                <td>15.5</td>
+                <td>16.2</td>
+                <td>13.8</td>
+                <td>9.7</td>                                  
+                <td>3.7</td>                                  
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><b class="">LLaVA-NeXT-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://github.com/Alpha-VLLM/LLaMA2-Accessory/tree/main/SPHINX" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2024-01-13</td>
+                <td><b class="">17.2</b></td>
+                <td>10.3</td>
+                <td>21.6</td>
+                <td>12.8</td>
+                <td>19.7</td>
+                <td>12.0</td>
+                <td>25.1</td>
+                <td>9.9</td>
+                <td>17.6</td>
+                <td>10.7</td>
+                <td>14.9</td>
+                <td>9.7</td>     
+                <td>12.1</td>                            
+                <td>6.3</td>                            
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><b class="">G-LLaVA-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">15.7</b></td>
+                <td>16.6</td>
+                <td>22.2</td>
+                <td>20.9</td>
+                <td>20.4</td>
+                <td>20.7</td>
+                <td>21.6</td>
+                <td>21.1</td>
+                <td>16.5</td>
+                <td>17.2</td>
+                <td>12.7</td>
+                <td>14.6</td>
+                <td>6.6</td>                                  
+                <td>9.4</td>                                  
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><b class="">SPHINX-Plus</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">14.0</b></td>
+                <td>12.2</td>
+                <td>16.3</td>
+                <td>13.9</td>
+                <td>12.8</td>
+                <td>11.6</td>
+                <td>15.8</td>
+                <td>14.9</td>
+                <td>12.9</td>
+                <td>11.6</td>
+                <td>14.7</td>
+                <td>13.5</td>
+                <td>13.2</td>                                  
+                <td>10.4</td>                                  
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><b class="">LLaVA-1.5-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">12.7</b></td>
+                <td>7.6</td>
+                <td>17.1</td>
+                <td>8.8</td>
+                <td>12.0</td>
+                <td>7.6</td>
+                <td>22.6</td>
+                <td>11.5</td>
+                <td>12.6</td>
+                <td>7.4</td>
+                <td>12.7</td>
+                <td>7.4</td>
+                <td>9.0</td>                                  
+                <td>6.9</td>                                  
+              </tr>
+              <tr>
+                <td>12</td>
+                <td><b class="">MiniGPT-v2-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.9</b></td>
+                <td>11.0</td>
+                <td>13.2</td>
+                <td>12.1</td>
+                <td>12.7</td>
+                <td>12.0</td>
+                <td>15.3</td>
+                <td>11.7</td>
+                <td>11.1</td>
+                <td>13.1</td>
+                <td>11.3</td>
+                <td>10.3</td>
+                <td>6.4</td>                                  
+                <td>7.4</td>                                  
+              </tr>
+              <tr>
+                <td>13</td>
+                <td><b class="">mPLUG-Owl2-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.3</b></td>
+                <td>4.6</td>
+                <td>11.6</td>
+                <td>6.6</td>
+                <td>11.4</td>
+                <td>6.3</td>
+                <td>13.8</td>
+                <td>6.1</td>
+                <td>11.1</td>
+                <td>6.3</td>
+                <td>9.4</td>
+                <td>5.6</td>
+                <td>8.0</td>                                  
+                <td>4.9</td>                                  
+              </tr>
+              <tr>
+                <td>14</td>
+                <td><b class="">ImageBind-LLM</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.0</b></td>
+                <td>9.3</td>
+                <td>13.2</td>
+                <td>11.4</td>
+                <td>11.6</td>
+                <td>11.3</td>
+                <td>12.9</td>
+                <td>11.7</td>
+                <td>9.8</td>
+                <td>8.9</td>
+                <td>11.8</td>
+                <td>11.2</td>
+                <td>3.5</td>                                  
+                <td>3.4</td>                                  
+              </tr>
+              <tr>
+                <td>15</td>
+                <td><b class="">LLaMA-Adapter V2</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">5.8</b></td>
+                <td>5.7</td>
+                <td>7.8</td>
+                <td>6.2</td>
+                <td>6.3</td>
+                <td>5.9</td>
+                <td>3.9</td>
+                <td>2.7</td>
+                <td>6.2</td>
+                <td>6.1</td>
+                <td>4.5</td>
+                <td>4.2</td>
+                <td>4.4</td>                                  
+                <td>6.1</td>                                  
+              </tr>
+
+            <!-- Human & LLM -->
+              <tr>
+                <td>-</td>
+                <td><b class="">ChatGPT</b></td>
+                <td>LLM 📄</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b class="">-</b></td>
+                <td>-</td>
+                <td>51.3</td>
+                <td>33.3</td>
+                <td>38.5</td>
+                <td>18.9</td>
+                <td>51.3</td>
+                <td>33.3</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>                                  
+                <td>-</td>                                  
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b class="">GPT-4</b></td>
+                <td>LLM 📄</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b class="">-</b></td>
+                <td>-</td>
+                <td>63.4</td>
+                <td>46.5</td>
+                <td>40.7</td>
+                <td>20.7</td>
+                <td>63.4</td>
+                <td>46.5</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>                                  
+                <td>-</td>   
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b>Human Performance*</b></td>
+                <td>-</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b>-</b></td>
+                <td>64.9</td>
+                <td>-</td>
+                <td>71.2</td>
+                <td>-</td>
+                <td>70.9</td>
+                <td>-</td>
+                <td>41.7</td>
+                <td>-</td>
+                <td>61.4</td>
+                <td>-</td>
+                <td>68.3</td>
+                <td>-</td>             
+                <td>66.7</td>             
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b>Random Chance</b></td>
+                <td>-</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b>-</b></td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>             
+                <td>12.4</td>        
+              </tr>
+          </tbody>                                                   
+          </table>
+
+          <b>Human Performance*:</b> Average human performance from annotators that are college students.
+          <br>
+          <b>Method types:</b> <b>MLLM 🖼️:</b> Multi-modal Large Language Model, <b>MoE 🤖:</b> Mixture of Experts, <b>LLM 📄:</b> Large Language Model
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="hero is-light is-small" id="MMStar Title">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+    <img src="images/logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">MMStar Benchmark</span>
+  </h1>
+  </div>
+</section>
+<section class="section" id="MMStar">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p><b>
+            After applying the coarse filter process and manual review, we narrow down from a total of 22,401 samples to 11,607 candidate samples and finally select 1,500 high-quality samples to construct our MMStar benchmark.
+            <centering>
+              <div style="text-align: center;">
+                <img id="teaser" width="90%" src="images/data_source.png">     
+              </div>
+            </centering>
+            <br>
+            In MMStar, we display 6 core
+            capabilities in the inner ring, with 18 detailed axes presented in the outer ring. The middle ring showcases the
+            number of samples for each detailed dimension. Each core capability contains a meticulously balanced 250
+            samples. We further ensure a relatively even distribution across the 18 detailed axes.
+            <centering>
+              <div style="text-align: center;">
+                <img id="teaser" width="60%" src="images/mmstar.png">     
+              </div>
+            </centering>
+          </b></p>
+        </div> 
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small" id="Leaderboard Title">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 mathvista">
+    <img src="images/logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="mathvista" style="vertical-align: middle">MMStar Leaderboard</span>
+  </h1>
+  </div>
+</section>
+<section class="section" id="Leaderboard">
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <div class="content">
+
+          <table class="js-sort-table" id="results">
+            <thead>
+              <tr>
+                <th rowspan="2" style="vertical-align: middle;"><strong>#</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Model</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>LLM</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>Param.</strong></th>
+                <th rowspan="2" style="vertical-align: middle;"><strong>CP</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>FP</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>IR</strong></th> <!-- Merging two columns for 'OOO' -->
+                <th colspan="1" style="vertical-align: middle;"><strong>LR</strong></th> <!-- Merging two columns for 'PPP' -->
+                <th colspan="1" style="vertical-align: middle;"><strong>ST</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>MA</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>Avg.✅</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>MG⬆</strong></th>
+                <th colspan="1" style="vertical-align: middle;"><strong>ML⬇</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><b>GPT4V (high) 🥇</b></td>
+                <td>GPT4-Turbo</td>
+                <td> - </td>
+                <td><u><b>76.6</b></u></td>
+                <td>51.4</td>
+                <td><u><b>66.6</b></u></td>
+                <td>55.8</td>
+                <td><u><b>42.6</b></u></td>
+                <td>49.8</td>
+                <td><u><b>57.1</b></u></td>
+                <td><u><b>43.6</b></u></td>
+                <td>1.3</td>                              
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><b>InternLM-XComposer2 🥈</b></td>
+                <td>InternLM2-7B</td>
+                <td>7B</td>
+                <td>70.8</td>
+                <td>48.8</td>
+                <td>65.2</td>
+                <td><u><b>56.4</b></u></td>
+                <td>42.0</td>
+                <td>49.2</td>
+                <td>55.4</td>
+                <td>28.1</td>
+                <td>7.5</td>                             
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><b>LLaVA-Next 🥉</b></td>
+                <td>NH2-Yi-34B</td>
+                <td>34B</td>
+                <td>66.4</td>
+                <td><u><b>52.0</b></u></td>
+                <td>62.4</td>
+                <td>46.0</td>
+                <td>32.4</td>
+                <td><u><b>53.6</b></u></td>
+                <td>52.1</td>
+                <td>29.4</td>
+                <td>2.4</td>                         
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><b class="">GPT4V (low)</b></td>
+                <td>GPT4-Turbo</td>
+                <td> - </td>
+                <td>62.0</td>
+                <td>32.8</td>
+                <td>55.2</td>
+                <td>48.0</td>
+                <td>33.6</td>
+                <td>44.8</td>
+                <td>46.1</td>
+                <td>32.6</td>
+                <td>1.3</td>                              
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><b>InternVL-Chat-v1.2</b></td>
+                <td>NH2-Yi-34B</td>
+                <td>40B</td>
+                <td>67.6</td>
+                <td>43.2</td>
+                <td>61.2</td>
+                <td>47.2</td>
+                <td>24.0</td>
+                <td>19.2</td>
+                <td>43.7</td>
+                <td>32.6</td>
+                <td><u><b>0.0</b></u></td>                               
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><b>GeminiPro-Vision</b></td>
+                <td>GeminiPro</td>
+                <td> - </td>
+                <td>51.6</td>
+                <td>28.8</td>
+                <td>50.8</td>
+                <td>46.0</td>
+                <td>28.4</td>
+                <td>50.0</td>
+                <td>42.6</td>
+                <td>27.4</td>
+                <td><u><b>0.0</b></u></td>                                  
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><b class="">ShareGPT4V-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">17.4</b></td>
+                <td>13.1</td>
+                <td>21.8</td>
+                <td>16.2</td>
+                <td>20.6</td>
+                <td>16.2</td>
+                <td>14.6</td>
+                <td>6.6</td>
+                <td>18.6</td>
+                <td>15.5</td>
+                <td>16.2</td>
+                <td>13.8</td>
+                <td>9.7</td>                                  
+                <td>3.7</td>                                  
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><b class="">LLaVA-NeXT-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://github.com/Alpha-VLLM/LLaMA2-Accessory/tree/main/SPHINX" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2024-01-13</td>
+                <td><b class="">17.2</b></td>
+                <td>10.3</td>
+                <td>21.6</td>
+                <td>12.8</td>
+                <td>19.7</td>
+                <td>12.0</td>
+                <td>25.1</td>
+                <td>9.9</td>
+                <td>17.6</td>
+                <td>10.7</td>
+                <td>14.9</td>
+                <td>9.7</td>     
+                <td>12.1</td>                            
+                <td>6.3</td>                            
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><b class="">G-LLaVA-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">15.7</b></td>
+                <td>16.6</td>
+                <td>22.2</td>
+                <td>20.9</td>
+                <td>20.4</td>
+                <td>20.7</td>
+                <td>21.6</td>
+                <td>21.1</td>
+                <td>16.5</td>
+                <td>17.2</td>
+                <td>12.7</td>
+                <td>14.6</td>
+                <td>6.6</td>                                  
+                <td>9.4</td>                                  
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><b class="">SPHINX-Plus</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">14.0</b></td>
+                <td>12.2</td>
+                <td>16.3</td>
+                <td>13.9</td>
+                <td>12.8</td>
+                <td>11.6</td>
+                <td>15.8</td>
+                <td>14.9</td>
+                <td>12.9</td>
+                <td>11.6</td>
+                <td>14.7</td>
+                <td>13.5</td>
+                <td>13.2</td>                                  
+                <td>10.4</td>                                  
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><b class="">LLaVA-1.5-13B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">12.7</b></td>
+                <td>7.6</td>
+                <td>17.1</td>
+                <td>8.8</td>
+                <td>12.0</td>
+                <td>7.6</td>
+                <td>22.6</td>
+                <td>11.5</td>
+                <td>12.6</td>
+                <td>7.4</td>
+                <td>12.7</td>
+                <td>7.4</td>
+                <td>9.0</td>                                  
+                <td>6.9</td>                                  
+              </tr>
+              <tr>
+                <td>12</td>
+                <td><b class="">MiniGPT-v2-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.9</b></td>
+                <td>11.0</td>
+                <td>13.2</td>
+                <td>12.1</td>
+                <td>12.7</td>
+                <td>12.0</td>
+                <td>15.3</td>
+                <td>11.7</td>
+                <td>11.1</td>
+                <td>13.1</td>
+                <td>11.3</td>
+                <td>10.3</td>
+                <td>6.4</td>                                  
+                <td>7.4</td>                                  
+              </tr>
+              <tr>
+                <td>13</td>
+                <td><b class="">mPLUG-Owl2-7B</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.3</b></td>
+                <td>4.6</td>
+                <td>11.6</td>
+                <td>6.6</td>
+                <td>11.4</td>
+                <td>6.3</td>
+                <td>13.8</td>
+                <td>6.1</td>
+                <td>11.1</td>
+                <td>6.3</td>
+                <td>9.4</td>
+                <td>5.6</td>
+                <td>8.0</td>                                  
+                <td>4.9</td>                                  
+              </tr>
+              <tr>
+                <td>14</td>
+                <td><b class="">ImageBind-LLM</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">10.0</b></td>
+                <td>9.3</td>
+                <td>13.2</td>
+                <td>11.4</td>
+                <td>11.6</td>
+                <td>11.3</td>
+                <td>12.9</td>
+                <td>11.7</td>
+                <td>9.8</td>
+                <td>8.9</td>
+                <td>11.8</td>
+                <td>11.2</td>
+                <td>3.5</td>                                  
+                <td>3.4</td>                                  
+              </tr>
+              <tr>
+                <td>15</td>
+                <td><b class="">LLaMA-Adapter V2</b></td>
+                <td>MLLM 🖼️</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-12-26</td>
+                <td><b class="">5.8</b></td>
+                <td>5.7</td>
+                <td>7.8</td>
+                <td>6.2</td>
+                <td>6.3</td>
+                <td>5.9</td>
+                <td>3.9</td>
+                <td>2.7</td>
+                <td>6.2</td>
+                <td>6.1</td>
+                <td>4.5</td>
+                <td>4.2</td>
+                <td>4.4</td>                                  
+                <td>6.1</td>                                  
+              </tr>
+
+            <!-- Human & LLM -->
+              <tr>
+                <td>-</td>
+                <td><b class="">ChatGPT</b></td>
+                <td>LLM 📄</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b class="">-</b></td>
+                <td>-</td>
+                <td>51.3</td>
+                <td>33.3</td>
+                <td>38.5</td>
+                <td>18.9</td>
+                <td>51.3</td>
+                <td>33.3</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>                                  
+                <td>-</td>                                  
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b class="">GPT-4</b></td>
+                <td>LLM 📄</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b class="">-</b></td>
+                <td>-</td>
+                <td>63.4</td>
+                <td>46.5</td>
+                <td>40.7</td>
+                <td>20.7</td>
+                <td>63.4</td>
+                <td>46.5</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>                                  
+                <td>-</td>   
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b>Human Performance*</b></td>
+                <td>-</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b>-</b></td>
+                <td>64.9</td>
+                <td>-</td>
+                <td>71.2</td>
+                <td>-</td>
+                <td>70.9</td>
+                <td>-</td>
+                <td>41.7</td>
+                <td>-</td>
+                <td>61.4</td>
+                <td>-</td>
+                <td>68.3</td>
+                <td>-</td>             
+                <td>66.7</td>             
+              </tr>
+              <tr>
+                <td>-</td>
+                <td><b>Random Chance</b></td>
+                <td>-</td>
+                <td><a href="https://arxiv.org/abs/2403.14624" class="ext-link" style="font-size: 16px;">Link</a></td>
+                <td>2023-10-03</td>
+                <td><b>-</b></td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>
+                <td>12.4</td>
+                <td>-</td>             
+                <td>12.4</td>        
+              </tr>
+          </tbody>                                                   
+        </table>
+
+          <b>Human Performance*:</b> Average human performance from annotators that are college students.
+          <br>
+          <b>Method types:</b> <b>MLLM 🖼️:</b> Multi-modal Large Language Model, <b>MoE 🤖:</b> Mixture of Experts, <b>LLM 📄:</b> Large Language Model
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">📃 BibTeX</h2>
+    <pre><code>
+      @article{
+      }
+    </code></pre>
+    <br>
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=5fkWaYaXIFBjo3ZXLy9Im1_uvPCz7ekv5UGtkp5SEiE&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is adapted from <a href="https://mathvista.github.io/">MathVista</a> and <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+
+</html>
